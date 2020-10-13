@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    #container{
+      background-color: #1fff;
+      height: 672px;
+    }
+    #f{
+      border-radius: 5px;
+      margin-top: 20px;
+      height: 620px;
+      width: 300px;
+      background-color: white;
+    }
+    #bt1{
+      margin-top: 10px;
+      width: 100px;
+    }
+  </style>
+  <title>Signup</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="container" class="container-fluid">
+<div class="row">
+  <div class="col-4"></div>
+  <div id="f" class="col-4">
+    <div id="err_msg"></div>
+    <h1>Signup</h1><br>
+
+  <form method="POST" action="/api/register">
+  <div class="form-group">
+    <label>Username</label>
+    <input type="text" class="form-control" placeholder="Name"  name="username">
+  </div>
+  <div class="form-group">
+    <label>Phone Number</label>
+    <input type="number" class="form-control" placeholder="phone" name="phone">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Confirm Password</label>
+    <input type="password" class="form-control" id="pass2" placeholder="Password">
+  </div>
+  <button id="bt1" type="submit" class="btn btn-primary">Regitser</button>
+  <br>
+  <h>Already have an account!</h>
+  <a href="/api/login">Login here</a>
+</form>
+  </div>
+  <div class="col-4"></div>
+</div>
+</div>
+</body>
+</html>

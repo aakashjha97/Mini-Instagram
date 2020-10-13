@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">.
+<head>
+    <title>Create Post</title>
+    <style>
+        #btn{
+            width: 140px;
+            height: 45px;
+            color: white;
+            border-color: blue;
+            background-color: blue;
+            border-radius: 5px;
+        }
+        #pn{
+            width: 400px;
+        }
+        #pm{
+            width: 400px;
+        }
+        #pp{
+            width: 400px;
+        }
+    </style>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="app" class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Ted</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav></div>
+<br><br>
+<section class="container content-section">
+    <h2 class="section-header">BOOKS</h2>
+    <div class="posts">
+    <% posts.forEach(function(post){ %>
+        <div class="card" id="post" postid="<%= post.id %>">
+            <span class="card-body" style="background-color: pink"><b>BOOK: </b><%= post.name %></span>
+            <span class="card-body" style="background-color: pink"><b>Auther: </b><%= post.auther %></span>
+            <span class="card-body" style="background-color: pink"><b>Genre: </b><%= post.genre %></span>
+            <div style="background-color: pink"><form method="POST" action="/api/deletepost">
+                <input type="hidden" name="id" value="<%= post.id %>">
+                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Delete</button></form><br>
+            <form method="POST" action="/api/updatepost/idvalue">
+                <input type="hidden" name="id" value="<%= post.id %>">
+                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Update</button></form></div><div style="background-color: pink"><br></div>
+        </div><br>
+    <% }) %>
+</div>
+</section>
+</body>
+</html>

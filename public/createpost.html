@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">.
+<head>
+	<title>Create Post</title>
+	<style>
+		#btn{
+			width: 140px;
+			height: 45px;
+			color: white;
+			border-color: blue;
+			background-color: blue;
+			border-radius: 5px;
+		}
+		#pn{
+			width: 400px;
+		}
+		#pm{
+			width: 400px;
+		}
+		#pp{
+			width: 400px;
+		}
+	</style>
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="app" class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Ted</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav></div>
+    <br><br>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6" style="background-color: pink">
+		<form method="POST" action="/api/createpost">
+		<h1>Create Post</h1><br><br>
+		Name:<input id="n" type="text" class="form-control" name="name"><br>
+		Auther:<input id="a" type="text" class="form-control" name="auther"><br>
+		Genre:<input id="g" type="text" class="form-control" name="genre"><br>
+		<input id="btn" type="submit" name="ADD">
+		<br><br>
+		</form>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+</div>
+</body>
+</html>
