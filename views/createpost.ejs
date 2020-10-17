@@ -53,11 +53,15 @@
 	<div class="row">
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6" style="background-color: pink">
-		<form method="POST" action="/api/createpost">
+		<form method="POST" action="/api/createpost" enctype="multipart/form-data">
 		<h1>Create Post</h1><br><br>
+		<% if (message.length > 0) { %>
+        <div class="alert alert-success col-sm-12"><%= message %></div>
+                            <% } %>
 		Name:<input id="n" type="text" class="form-control" name="name"><br>
 		Auther:<input id="a" type="text" class="form-control" name="auther"><br>
 		Genre:<input id="g" type="text" class="form-control" name="genre"><br>
+		Upload Image:<input type="file" name="files" accept=""/>
 		<input id="btn" type="submit" name="ADD">
 		<br><br>
 		</form>

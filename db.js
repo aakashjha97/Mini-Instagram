@@ -57,6 +57,10 @@ const Posts=db.define('posts',{
 		type:Sequelize.STRING,
 		allowNull:false,
         unique:true
+	},
+	image:{
+		type:Sequelize.STRING,
+		allowNull:false	
 	}
 })
 
