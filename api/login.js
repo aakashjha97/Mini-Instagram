@@ -19,10 +19,10 @@ route.post('/',(req,res)=>{
 		{
 			return res.render('login.ejs',{message:'no such user'})
 		}
-		// if(!isValidPassword(user.password,req.body.password))
-		// {
-		// 	return res.render('login.ejs',{message:'wrong password'})
-		// }
+		if(!isValidPassword(user.password,req.body.password))
+		{
+			return res.render('login.ejs',{message:'wrong password'})
+		}
 		res.render('loggedin.ejs',{userid:user.id,name:req.body.username,message:''})
 	}).catch((err)=>{
 		res.send("error")

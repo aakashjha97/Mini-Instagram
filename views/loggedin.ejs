@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Diplomata SC' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -39,17 +40,18 @@
                             <% } %>
   <div class="row">
     <div id="d1" class="col-sm-3">
-      <h1 id="d1h">Dashboard</h1>
-      <div id="d11" class="list-group">
+      <div class="card">
+    <div class="card-body"><h1 id="d1h" style="align-content: center;">Dashboard</h1></div>
         <form method="POST" action="/api/viewpost/idwise">
                 <input type="hidden" name="userid" value="<%= userid %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">ViewMYposts</button></form>
+                <button type="submit" class="btn btn-danger" style="padding: 30px;width:200px; margin-left: 20px;font-family: 'Diplomata SC'">ViewMyposts</button></form><br>
         <form method="POST" action="/api/viewallposts/idwise">
                 <input type="hidden" name="userid" value="<%= userid %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">ViewAllposts</button></form>
+                <button type="submit" class="btn btn-danger" style="padding:30px; width:200px; margin-left: 20px;font-family: 'Diplomata SC'">ViewAllposts</button></form><br>
         <form method="POST" action="/api/createpost/idwise">
                 <input type="hidden" name="userid" value="<%= userid %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Createpost</button></form>
+                <button type="submit" class="btn btn-danger" style="padding: 30px;width:200px; margin-left: 20px;font-family: 'Diplomata SC'">Create post</button></form><br>
+  </div>
 </div>
 </div>
 </div>

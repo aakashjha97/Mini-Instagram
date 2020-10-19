@@ -3,7 +3,7 @@ const Comments=require('../db').Comments
 const Users=require('../db').Users
 
 route.post('/',(req,res)=>{
-
+console.log(req.body.userid)
 Users.findOne({where:{
 	id:req.body.userid
 }}).then((user)=>{

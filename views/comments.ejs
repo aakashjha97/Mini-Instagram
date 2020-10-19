@@ -24,6 +24,7 @@
       <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Diplomata SC' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -53,21 +54,20 @@
     <% if (message.length > 0) { %>
         <div class="alert alert-success col-sm-12"><%= message %></div>
                             <% } %>
-    <h2 class="section-header">BOOKS</h2>
-    <div>
-            <span class="card-body" style="background-color: pink"><b>BOOK: </b><%= name %></span>
-            <div align="center"> <img alt="User Pic" src="http://localhost:1234/uploads/<%=img%>" class="img-circle img-responsive"></div>
+        <div>
+            <h2 style="text-align: center;color: red;font-family: 'Diplomata SC'"><%= name %></h2>
+            <div align="center"> <img alt="User Pic" src="http://localhost:1234/uploads/<%=img%>" class="img-circle img-responsive" style="width:300px;height: 300px;"></div>
+            <h2 class="section-header" style="font-family: 'Diplomata SC'">Comments:</h2>
             <% comments.forEach(function(comment){ %>
-            <div class="card" id="comment" postid="<%= comment.id %>">
-            <span class="card-body" style="background-color: pink"><b><%= comment.username%></span>
-            <span class="card-body" style="background-color: pink"><%= comment.comment%></span><br><br>
-    <% }) %><br><br>
+            <div class="card" >
+            <span class="card-body" style="background-color: #F0FFF0;"><img src="http://localhost:1234/user.jpeg" style="width:30px;height:30px;"> <h style="color: blue; font-family: 'Diplomata SC'"> <%= comment.username%></h></span>
+            <span class="card-body" style="background-color: #F0FFF0;"><%= comment.comment%></span></div><br>
+    <% }) %><br>
             <form method="POST" action="/api/addcomment">
                 <input type="hidden" name="postid" value="<%= pid %>">
                 <input type="hidden" name="userid" value="<%= userid %>">
-                Comment: <textarea type="text" name="comment" ></textarea>
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">AddComment</button></form></div><div style="background-color: pink"><br>
-                </div>
+                <textarea type="text" name="comment" style="width:300px; height: 100px"></textarea><br>
+                <button type="submit" class="btn btn-primary" style="font-family: 'Diplomata SC'">Add Comment</button></form>
         </div><br>
 </div>
 </section>
