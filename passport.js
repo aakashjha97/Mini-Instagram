@@ -1,43 +1,13 @@
-const passport=require('passport')
-const LocalStrategy=require('passport-local').Strategy
-const Users=require('./db').Users
+var passport = require('passport')
 
-passport.serializeUser(function(user,done){
-	done(null,user.username)
-})
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
 
-passport.deserializeUser(function (username, done){
-
-	Users.findOne({
-		username: username
-	}).then((user)=>{
-		if(!user){
-			return done(null,false,new Error("No such user"))
-		}
-		return done(null,user)
-	}).catch((err)=>{
-		return done(err)
-	})
-})
-
-passport.use(new LocalStrategy(function(username,password,done){
-	
-	Users.findOne({
-		where:{
-			username:username
-		}
-	}).then((user)=>{
-		if(!user){
-			return done(null,false,{message: "no such user"})
-		}
-		if(user.password!=password)
-		{
-			return done(null,false,{message: "no such user"})
-		}
-		return done(null,user)
-	}).catch((err=>{
-		return done(err)
-	}))
-}))
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 exports=module.exports=passport

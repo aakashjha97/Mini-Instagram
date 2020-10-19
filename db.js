@@ -43,24 +43,53 @@ const Posts=db.define('posts',{
 		autoIncrement: true,
         primaryKey: true
 	},
+	userid:{
+		type:Sequelize.INTEGER,
+		allowNull:false
+	},
+	username:{
+		type:Sequelize.STRING,
+		allowNull:false
+	},
 	name:{
 		type:Sequelize.STRING,
 		allowNull:false,
-		unique:true
 	},
 	auther:{
 		type:Sequelize.STRING,
 		allowNull:false,
-        unique:true
 	},
 	genre:{
 		type:Sequelize.STRING,
 		allowNull:false,
-        unique:true
 	},
 	image:{
 		type:Sequelize.STRING,
 		allowNull:false	
+	}
+})
+
+const Comments=db.define('comments',{
+	id:{
+		type:Sequelize.INTEGER,
+		autoIncrement:true,
+		primaryKey:true
+	},
+	username:{
+		type:Sequelize.STRING,
+		allowNull:false,
+	},
+	userid:{
+		type:Sequelize.INTEGER,
+		allowNull:false
+	},
+	postid:{
+		type:Sequelize.INTEGER,
+		allowNull:false
+	},
+	comment:{
+		type:Sequelize.STRING,
+		allowNull:false
 	}
 })
 
@@ -70,4 +99,5 @@ exports=module.exports={
 	db,
 	Users,
 	Posts,
+	Comments,
 }

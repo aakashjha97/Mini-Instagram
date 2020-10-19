@@ -1,10 +1,11 @@
 const route=require('express').Router();
 const Posts=require('../db').Posts
+const Users=require('../db').Users
 const multer = require('multer')
 const fs=require('fs')
 
-route.get('/',(req,res)=>{
-	res.render('createpost.ejs',{message:''})
+route.post('/idwise',(req,res)=>{
+	res.render('createpost.ejs',{message:'',userid:req.body.userid})
 })
 
 let storage = multer.diskStorage({
@@ -30,14 +31,20 @@ route.post('/',(req,res,next)=>{
 		if(err){
 				return res.send("something wrong")
 		}
-	
-			var n=req.body.name;
-			var	a=req.body.auther;
-			var	g=req.body.genre;
-			var i=req.file.filename
-
+			var uid=req.body.userid;
+			Users.findOne({where:{
+				id:uid
+			}}).then((user)=>{
+				var un=user.username;
+				var n=req.body.name;
+				var	a=req.body.auther;
+				var	g=req.body.genre;
+				var i=req.file.filename
+			
 				if(req.file.mimetype == "image/jpeg" ||req.file.mimetype == "image/png"||req.file.mimetype == "image/gif" ){
 				        Posts.create({
+				        	userid:uid,
+				        	username:un,
 							name:n,
 							auther:a,
 							genre:g,
@@ -55,6 +62,11 @@ route.post('/',(req,res,next)=>{
 			    message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
 			    res.render('index.ejs',{message: message});
 			}
+		}).catch((err)=>{
+				res.status(501).send({
+							error:err
+						})
+			})
 	})
 })
 

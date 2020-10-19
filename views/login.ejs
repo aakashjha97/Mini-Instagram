@@ -34,6 +34,9 @@
     <br>
     <h1>Login</h1>
     <br>
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger col-sm-12"><%= message %></div>
+                            <% } %>
   <form method="POST" action="/api/login">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>

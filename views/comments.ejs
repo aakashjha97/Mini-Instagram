@@ -50,27 +50,25 @@
     </nav></div>
 <br><br>
 <section class="container content-section">
+    <% if (message.length > 0) { %>
+        <div class="alert alert-success col-sm-12"><%= message %></div>
+                            <% } %>
     <h2 class="section-header">BOOKS</h2>
-    <div class="posts">
-    <% posts.forEach(function(post){ %>
-        <div class="card" id="post" postid="<%= post.id %>">
-            <span class="card-body" style="background-color: pink"><b>BOOK: </b><%= post.name %></span>
-            <span class="card-body" style="background-color: pink"><b>Auther: </b><%= post.auther %></span>
-            <span class="card-body" style="background-color: pink"><b>Genre: </b><%= post.genre %></span>
-            <div align="center"> <img alt="User Pic" src="http://localhost:1234/uploads/<%=post.image%>" class="img-circle img-responsive"></div>
-
-            <div style="background-color: pink"><form method="POST" action="/api/deletepost">
-                <input type="hidden" name="id" value="<%= post.id %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Delete</button></form><br>
-            <form method="POST" action="/api/updatepost/idvalue">
-                <input type="hidden" name="id" value="<%= post.id %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Update</button></form></div><div style="background-color: pink"><br>
-            <form method="POST" action="/api/loadcomments">
-                <input type="hidden" name="postid" value="<%= post.id %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">LoadComments</button></form></div><div style="background-color: pink"><br>
+    <div>
+            <span class="card-body" style="background-color: pink"><b>BOOK: </b><%= name %></span>
+            <div align="center"> <img alt="User Pic" src="http://localhost:1234/uploads/<%=img%>" class="img-circle img-responsive"></div>
+            <% comments.forEach(function(comment){ %>
+            <div class="card" id="comment" postid="<%= comment.id %>">
+            <span class="card-body" style="background-color: pink"><b><%= comment.username%></span>
+            <span class="card-body" style="background-color: pink"><%= comment.comment%></span><br><br>
+    <% }) %><br><br>
+            <form method="POST" action="/api/addcomment">
+                <input type="hidden" name="postid" value="<%= pid %>">
+                <input type="hidden" name="userid" value="<%= userid %>">
+                Comment: <textarea type="text" name="comment" ></textarea>
+                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">AddComment</button></form></div><div style="background-color: pink"><br>
                 </div>
         </div><br>
-    <% }) %>
 </div>
 </section>
 </body>

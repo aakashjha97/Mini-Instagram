@@ -57,16 +57,12 @@
             <span class="card-body" style="background-color: pink"><b>BOOK: </b><%= post.name %></span>
             <span class="card-body" style="background-color: pink"><b>Auther: </b><%= post.auther %></span>
             <span class="card-body" style="background-color: pink"><b>Genre: </b><%= post.genre %></span>
+            <span class="card-body" style="background-color: pink"><b>Posted By: </b><%= post.username %></span>
             <div align="center"> <img alt="User Pic" src="http://localhost:1234/uploads/<%=post.image%>" class="img-circle img-responsive"></div>
-
-            <div style="background-color: pink"><form method="POST" action="/api/deletepost">
-                <input type="hidden" name="id" value="<%= post.id %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Delete</button></form><br>
-            <form method="POST" action="/api/updatepost/idvalue">
-                <input type="hidden" name="id" value="<%= post.id %>">
-                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">Update</button></form></div><div style="background-color: pink"><br>
+            
             <form method="POST" action="/api/loadcomments">
                 <input type="hidden" name="postid" value="<%= post.id %>">
+                <input type="hidden" name="userid" value="<%= uid %>">
                 <button type="submit" class="btn btn-primary" style="margin-left: 50px;">LoadComments</button></form></div><div style="background-color: pink"><br>
                 </div>
         </div><br>
