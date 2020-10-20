@@ -54,11 +54,14 @@
     <h2 class="section-header" style="text-align: center;">WEB SERIES</h2>
     <div class="posts">
     <% posts.forEach(function(post){ %>
-        <div class="card" id="post" postid="<%= post.id %>">
+    <div class="row" >
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6"  style="border-radius: 10px;">
+        <div class="card" id="post" postid="<%= post.id %>" >
             <span class="card-body" style="background-color: black; text-align: center; color: red; font-family: 'Diplomata SC'"><b></b><%= post.name %></span>
             <span class="card-body" style="background-color: black; text-align: center; color: red;font-family: 'Diplomata SC'"><b>Auther: </b><%= post.auther %></span>
-            <span class="card-body" style="background-color: black; text-align: center; color: red;font-family: 'Diplomata SC'"><b>Genre: </b><%= post.genre %></span>
-            <div align="center"> <img alt="User Pic" src="http://localhost:1234/uploads/<%=post.image%>" style="min-width:100%; height: 500px;"></div>
+            <span class="card-body" style="background-color: black; text-align: center; color: red;font-family: 'Diplomata SC'"><b>Genre: </b><%= post.genre %></span>  
+            <img alt="User Pic" src="http://localhost:1234/uploads/<%=post.image%>" style="min-width: 100% ;height: 300px;">
             <span class="card-body" style="background-color: black; text-align: center; color: pink;font-family: 'Diplomata SC'"><b>Posted By: </b><%= post.username %></span>
             <span class="card-body" style="background-color: black; text-align: center;">
             <form method="POST" action="/api/loadcomments">
@@ -66,6 +69,8 @@
                 <input type="hidden" name="userid" value="<%= uid %>">
                 <button type="submit" class="btn btn-primary" style="margin-left: 50px; width:200px; font-family: 'Diplomata SC'">Comments</button></form></span>
                 </div>
+                </div>
+        <div class="col-sm-3"></div>
         </div><br><br>
     <% }) %>
 </div>
