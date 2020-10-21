@@ -1,1 +1,1 @@
-# Mili-Instagram
+# Mini-Instagram
